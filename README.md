@@ -2,7 +2,9 @@
 
 My Self Vijay Kumar I would like to share all the Mainframe related information here that i have gained over a decade of my jounrey in Mainframe.
 
-If you are new or Want to referesh your Mainframe Skills, if you do like this don't forget to share this information to anyone this may be helpful.. 
+If you are new or Want to referesh your Mainframe Skills ,i have created mainframe videos and shared in below links .
+
+If you do like this don't forget to share this information to anyone this may be helpful.. 
 
 Below are the different links you can looks at 
 
