@@ -1,0 +1,25 @@
+      ********************************************
+      * COBOL PROGRAM USING PERFORM TIME OUTLINE *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A PIC 9(3) VALUE 290.
+       01 B PIC 9(3) VALUE 160.
+       01 C PIC 9(3).
+       PROCEDURE DIVISION.
+           PERFORM PARA-1 THRU PARA-1-END 5 TIMES.
+           PERFORM PARA-2 THRU PARA-2-END 5 TIMES.
+           STOP RUN.
+       PARA-1.
+           COMPUTE C = A + B.
+           DISPLAY C.
+       PARA-1-END.
+            EXIT.
+       PARA-2.
+           COMPUTE C = A - B.
+           DISPLAY C.
+       PARA-2-END.
+            EXIT.

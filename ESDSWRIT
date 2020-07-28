@@ -1,0 +1,48 @@
+      ******************************************
+      * COBOL - PGM TO WRITE THE DATA INTO ESDS*
+      ******************************************
+       ID DIVISION.
+       PROGRAM-ID. ESDS.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT IFILE ASSIGN TO AS-INFILE
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS MODE IS SEQUENTIAL
+           FILE STATUS IS FS-STAT1.
+           SELECT OFILE ASSIGN TO AS-OUTFILE
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS MODE IS SEQUENTIAL
+           FILE STATUS IS FS-STAT2.
+       DATA DIVISION.
+       FILE SECTION.
+       FD IFILE.
+       01 STD-REC.
+         02 SNO    PIC X(04).
+         02 FILLER PIC X(02).
+         02 SNAME  PIC X(20).
+         02 FILLER PIC X(02).
+         02 SADDR  PIC X(20).
+       FD OFILE.
+       01 OUT-REC  PIC X(48).
+       WORKING-STORAGE SECTION.
+       01 OPTION PIC X(3) VALUE "YES".
+       01 FS-STAT1 PIC X(2) VALUE SPACES.
+       01 FS-STAT2 PIC X(2) VALUE SPACES.
+       PROCEDURE DIVISION.
+       MAINPARA.
+           OPEN INPUT IFILE.
+           DISPLAY FS-STAT1.
+           OPEN OUTPUT OFILE.
+           DISPLAY FS-STAT2.
+           PERFORM READ-WRITE-PARA UNTIL OPTION = 'NO'
+           PERFORM CLOSEPARA.
+           STOP RUN.
+       READ-WRITE-PARA.
+           READ IFILE AT END MOVE 'NO' TO OPTION.
+           IF OPTION = 'YES'
+           WRITE OUT-REC FROM STD-REC
+           END-IF.
+       CLOSEPARA.
+           CLOSE IFILE.
+           CLOSE OFILE.

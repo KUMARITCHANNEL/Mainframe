@@ -1,0 +1,39 @@
+      ********************************************
+      * COBOL PROGRAM FOR 3D ARRAY               *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ARRAY.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 I PIC 9(1).
+       77 J PIC 9(1).
+       77 K PIC 9(1).
+       01 MONTH-GR.
+         02 MONTH   OCCURS 1 TIMES.
+         03 WEEK    OCCURS 4 TIMES.
+         04 DAYS PIC X(4)  OCCURS 7 TIMES.
+       PROCEDURE DIVISION.
+           MOVE 1 TO I.
+           PERFORM  PARA1 THRU PARA1-END UNTIL I > 1.
+           STOP RUN.
+       PARA1.
+           ACCEPT MONTH (I).
+           DISPLAY MONTH (I).
+           MOVE 1 TO J.
+           PERFORM PARA2 THRU PARA2-END UNTIL J > 4.
+           ADD 1 TO I.
+        PARA1-END. EXIT.
+        PARA2.
+            ACCEPT WEEK (I,J).
+            DISPLAY WEEK (I,J).
+            MOVE 1 TO K.
+            PERFORM PARA3 THRU PARA3-END UNTIL K > 7.
+            ADD 1 TO J.
+        PARA2-END. EXIT.
+        PARA3.
+            ACCEPT DAYS (I , J , K).
+            DISPLAY DAYS (I, J , K).
+            ADD 1 TO K.
+        PARA3-END. EXIT.

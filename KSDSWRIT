@@ -1,0 +1,60 @@
+       ID DIVISION.
+       PROGRAM-ID. KSDS.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT IFILE ASSIGN TO INFILE
+           ORGANIZATION IS INDEXED
+           ACCESS MODE IS SEQUENTIAL
+           RECORD KEY IS SNOI
+           FILE STATUS IS WS-STAT-IN.
+           SELECT OFILE ASSIGN TO OUTFILE
+           ORGANIZATION IS INDEXED
+           ACCESS MODE IS SEQUENTIAL
+           RECORD KEY IS SNOO
+           FILE STATUS IS WS-STAT-OUT.
+       DATA DIVISION.
+       FILE SECTION.
+       FD IFILE.
+       01 STD-IREC.
+         02 SNOI   PIC X(04).
+         02 FILLER PIC X(02).
+         02 SNAME  PIC X(20).
+         02 FILLER PIC X(02).
+         02 SADDR  PIC X(20).
+       FD OFILE.
+       01 STD-OREC.
+         02 SNOO   PIC X(04).
+         02 FILLER PIC X(02).
+         02 SNAME  PIC X(20).
+         02 FILLER PIC X(02).
+         02 SADDR  PIC X(20).
+       WORKING-STORAGE SECTION.
+       01 NUM PIC 9(4).
+       01 OPTION PIC X VALUE 'Y'.
+       01 WS-STAT-IN PIC X(2) VALUE SPACES.
+       01 WS-STAT-OUT PIC X(2) VALUE SPACES.
+       PROCEDURE DIVISION.
+       MAINPARA.
+           PERFORM OPENPARA.
+           PERFORM READ-WRITE-PARA UNTIL OPTION = 'N'.
+           PERFORM CLOSEPARA.
+           STOP RUN.
+       OPENPARA.
+           OPEN INPUT  IFILE.
+           OPEN OUTPUT OFILE.
+       READ-WRITE-PARA.
+           READ IFILE INTO STD-OREC AT END MOVE 'N' TO OPTION.
+           DISPLAY WS-STAT-IN.
+           IF OPTION = 'Y'
+           WRITE STD-OREC.
+           DISPLAY WS-STAT-OUT.
+           IF WS-STAT-OUT = '00'
+           ADD 1 TO NUM
+           DISPLAY 'RECORD INSERTED SUCCESFULLY' NUM
+           ELSE
+           DISPLAY 'FILE STATUS IS ' WS-STAT-OUT
+           END-IF.
+       CLOSEPARA.
+           CLOSE IFILE.
+           CLOSE OFILE.

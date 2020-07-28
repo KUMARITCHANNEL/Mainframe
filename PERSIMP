@@ -1,0 +1,25 @@
+      ********************************************
+      * COBOL PROGRAM USING SIMPLE PERFORM       *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SIMP.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A PIC 9(3) VALUE 290.
+       01 B PIC 9(3) VALUE 160.
+       01 C PIC 9(3).
+       01 D PIC 9(3).
+       PROCEDURE DIVISION.
+           PERFORM PARA-1.
+           PERFORM PARA-2.
+           STOP RUN.
+       PARA-1.
+           COMPUTE C = A + B.
+           DISPLAY C.
+           MOVE C TO D.
+           DISPLAY D.
+       PARA-2.
+           COMPUTE C = A - B.
+           DISPLAY C.

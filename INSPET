@@ -1,0 +1,26 @@
+      ********************************************
+      * COBOL PROGRAM USING STRING               *
+      * DATE : 07.07.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. STRNGPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 STRING1 PIC X(12) VALUE IS "GOOD MORNING".
+          01 C PIC 99 VALUE IS ZERO.
+          01 STRING2 PIC X(12).
+       PROCEDURE DIVISION.
+           INSPECT STRING1 TALLYING C FOR ALL "O".
+           DISPLAY "NUMBER OF O'S IN GOOD MORNING" C.
+           MOVE ZEROS TO C.
+           INSPECT STRING1 TALLYING C FOR LEADING "G".
+           DISPLAY "NUMBER OF LEADING G'S" C.
+           MOVE ZEROS TO C.
+           INSPECT STRING1 TALLYING C FOR CHARACTERS.
+           DISPLAY "NUMBER OF CHARACTERSS" C.
+           MOVE ZEROS TO C.
+           MOVE STRING1 TO STRING2.
+           INSPECT STRING2 REPLACING CHARACTERS BY "*"
+           DISPLAY "AFTER REPLACING      " STRING2.
+           STOP RUN.

@@ -1,0 +1,10 @@
+       OPEN-PARA.
+            OPEN OUTPUT EMPFILE.
+       PROCESS-PARA.
+            ACCEPT EMP-ID.
+            ACCEPT EMP-NAME.
+            ACCEPT EMP-LOC.
+            ACCEPT EMP-SAL.
+            WRITE EMPREC.
+            DISPLAY WS-STAT.
+            ACCEPT ARE-THERE-ANY-RECORDS.

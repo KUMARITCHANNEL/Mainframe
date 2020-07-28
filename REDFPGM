@@ -1,0 +1,21 @@
+000100********************************************                      00010000
+000200* COBOL PROGRAM USING REDIINES             *                      00020000
+000300* DATE : 07.08.2020                        *                      00030000
+000400* AUTHOR : VIJAY KUMAR                     *                      00040000
+000500********************************************                      00050000
+000600 IDENTIFICATION DIVISION.                                         00060000
+000700 PROGRAM-ID. IFPGM.                                               00070000
+000800 DATA DIVISION.                                                   00080000
+000900 WORKING-STORAGE SECTION.                                         00090000
+001100 01 WS-DATE-1 PIC X(10) VALUE "07-07-2020".                       00110000
+001200 01 WS-MM-YY REDEFINES WS-DATE-1.                                 00120002
+001300 02 WS-MM   PIC X(2).                                             00130002
+001300 02 WS-YYYY PIC X(4).                                             00131002
+001600 PROCEDURE DIVISION.                                              00160000
+001800      MOVE WS-DATE-1(4:2) TO WS-MM.                               00180002
+001800      MOVE WS-DATE-1(7:4) TO WS-YYYY..                            00181002
+002000      DISPLAY WS-DATE-1.                                          00200002
+002200      DISPLAY WS-MM.                                              00220000
+002300      DISPLAY WS-YYYY.                                            00230002
+002000      DISPLAY WS-MM-YY.                                           00231003
+002400      STOP RUN.                                                   00240000

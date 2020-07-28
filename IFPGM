@@ -1,0 +1,33 @@
+      ********************************************
+      * COBOL PROGRAM USING CONDITIONAL VERB IF  *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 WS-SALARY      PIC 9(04).
+          01 WS-TAX         PIC 9(02).
+          01 WS-CUST-NAME   PIC X(20).
+          01 WS-SAL-TAX     PIC 9(04).
+          01 WS-DATE.
+             02 WS-YYYY PIC X(4).
+             02 WS-MM   PIC X(2).
+             02 WS-DD   PIC X(2).
+          01 WS-CUST-TEMP   PIC X(20).
+       PROCEDURE DIVISION.
+       EMPLOYEE-TAX-CAL.
+           MOVE 3500 TO WS-SALARY.
+           IF WS-SALARY > 3000
+      *    IF WS-SALARY > 3000 OR WS-SALARY < 3200
+      *    IF WS-SALARY > 3000 AND WS-SALARY < 3200
+           MOVE 40 TO WS-TAX
+           SUBTRACT WS-TAX FROM WS-SALARY GIVING WS-SAL-TAX
+           ELSE
+           MOVE 00 TO WS-TAX
+           END-IF.
+           DISPLAY 'SALARY + TAX = ' WS-SAL-TAX.
+           DISPLAY 'SALARY       = ' WS-SALARY.
+           DISPLAY 'TAX          = ' WS-TAX.
+           STOP RUN.

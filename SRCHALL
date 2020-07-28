@@ -1,0 +1,27 @@
+      ********************************************
+      * COBOL PROGRAM FOR SEARCH ALL           *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ARRAY.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 NUMBER1.
+           02 NO1 PIC 9(2) OCCURS 5 TIMES
+                        ASCENDING KEY IS NO1 INDEXED BY I.
+       PROCEDURE DIVISION.
+           PERFORM PARA1 THRU PARA1-END.
+           DISPLAY NUMBER1.
+       PARA1.
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 5
+           ACCEPT NO1(I)
+           DISPLAY NO1(I)
+           END-PERFORM.
+           SEARCH ALL NO1
+           AT END DISPLAY "NOT FOUND"
+           WHEN NO1(I) = 99
+           DISPLAY "FOUND".
+       PARA1-END.
+               EXIT.
+               STOP RUN.

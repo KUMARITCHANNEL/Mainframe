@@ -1,0 +1,21 @@
+      ********************************************
+      * COBOL PROGRAM USING CONDITIONAL NEXT     *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-AMT1 PIC 9(02) VALUE 10.
+       01 WS-AMT2 PIC 9(02) VALUE 10.
+       01 WS-TOT  PIC 9(02).
+       PROCEDURE DIVISION.
+       EMPLOYEE-TAX-CAL.
+           IF WS-AMT1 = WS-AMT2 THEN
+           NEXT SENTENCE
+           ELSE
+           COMPUTE WS-TOT = 100 + WS-TOT
+           END-IF.
+           DISPLAY 'TOTAL IS :' WS-TOT.
+           STOP RUN.

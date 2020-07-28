@@ -1,0 +1,46 @@
+       ID DIVISION.
+       PROGRAM-ID. KSDS.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT RFILE ASSIGN TO RDD
+           ORGANIZATION IS RELATIVE
+           ACCESS MODE IS RANDOM
+           RELATIVE KEY IS WS-KEY
+           FILE STATUS IS WS-STAT.
+       DATA DIVISION.
+       FILE SECTION.
+       FD RFILE.
+       01 STD-REC.
+         02 SNO PIC X(4).
+         02 SNAME PIC X(20).
+         02 SADDR PIC X(20).
+       WORKING-STORAGE SECTION.
+       01 WS-KEY PIC 9(4).
+       01 OPTION PIC X(3).
+       01 WS-STAT PIC X(2) VALUE SPACES.
+       PROCEDURE DIVISION.
+       MAINPARA.
+           OPEN EXTEND RFILE.
+           MOVE 1 TO WS-KEY.
+           PERFORM WRITEPARA UNTIL OPTION = 'NO'
+           PERFORM CLOSEPARA.
+           STOP RUN.
+       WRITEPARA.
+           ACCEPT WS-KEY.
+           ACCEPT SNO.
+           ACCEPT SNAME.
+           ACCEPT SADDR.
+            WRITE STD-REC INVALID KEY DISPLAY 'ERROR IN WRITE'.
+            IF WS-STAT = '00'
+              DISPLAY 'REC INSERTED SUCCESS FULLY'
+            ELSE
+              DISPLAY 'FILESTATUS CODE IS ' WS-STAT
+              MOVE WS-STAT TO RETURN-CODE
+              DISPLAY RETURN-CODE UPON SYSOUT
+              END-IF.
+              ACCEPT OPTION.
+              ADD WS-KEY , 1 GIVING WS-KEY.
+              DISPLAY WS-KEY.
+       CLOSEPARA.
+            CLOSE RFILE.

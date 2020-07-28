@@ -1,0 +1,23 @@
+      ********************************************
+      * COBOL PROGRAM FOR CONDITION LEVEL 88 , 77*
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 WS-MARITAL-STATUS PIC 9.
+       88 WS-SINGLE  VALUE 0.
+       88 WS-MARRIED VALUE 1.
+       88 WS-DIVORCED VALUE 2.
+       88 WS-WIDOWED VALUE 3.
+       77 WS-AMOUNT  PIC 9(3) VALUE 100.
+       PROCEDURE DIVISION.
+       MAIN-PARA.
+           ACCEPT WS-MARITAL-STATUS.
+           IF WS-SINGLE   SUBTRACT 10  FROM WS-AMOUNT.
+           IF WS-MARRIED  SUBTRACT 05  FROM WS-AMOUNT.
+           IF WS-DIVORCED SUBTRACT 20  FROM WS-AMOUNT.
+           DISPLAY WS-AMOUNT.
+           STOP RUN.

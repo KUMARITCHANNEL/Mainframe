@@ -1,0 +1,23 @@
+      ********************************************
+      * COBOL PROGRAM FOR CONDITION LEVEL 88 , 77*
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A  COMP-2.
+       01 B  COMP-2.
+       01 C  COMP-2 .
+       PROCEDURE DIVISION.
+           MOVE 123456 TO A.
+           MOVE 65 TO B.
+           MOVE 111111111111 TO C
+           DISPLAY A.
+           DISPLAY LENGTH OF B.
+           DISPLAY B.
+           DISPLAY LENGTH OF B.
+           DISPLAY C.
+           DISPLAY LENGTH OF C.
+           STOP RUN.

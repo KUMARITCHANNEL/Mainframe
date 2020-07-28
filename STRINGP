@@ -1,0 +1,23 @@
+      ********************************************
+      * COBOL PROGRAM USING STRING               *
+      * DATE : 07.07.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. STRNGPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 WS-CUST-NAME     PIC X(40).
+          01 WS-CUST-FIRST-NM  PIC X(20) VALUE IS "VIJAY".
+          01 WS-CUST-LAST-NM  PIC X(20) VALUE IS "KUMAR".
+          01 WS-CUST-POINT    PIC 9(2) VALUE 05.
+       PROCEDURE DIVISION.
+           STRING
+           WS-CUST-FIRST-NM , WS-CUST-LAST-NM
+           DELIMITED BY SIZE
+           INTO
+           WS-CUST-NAME
+           WITH POINTER WS-CUST-POINT
+           END-STRING.
+           DISPLAY WS-CUST-NAME.
+           STOP RUN.

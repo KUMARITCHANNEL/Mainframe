@@ -1,0 +1,19 @@
+      ********************************************
+      * COBOL PROGRAM FOR COMP                   *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A  COMP-1.
+       01 B  COMP-2.
+       PROCEDURE DIVISION.
+           MOVE 999 TO A.
+           DISPLAY A.
+           DISPLAY LENGTH OF A.
+           MOVE 1234567891 TO B.
+           DISPLAY B.
+           DISPLAY LENGTH OF B.
+           STOP RUN.

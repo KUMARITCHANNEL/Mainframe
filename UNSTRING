@@ -1,0 +1,23 @@
+      ********************************************
+      * COBOL PROGRAM USING UNSTRING             *
+      * DE-CONCATENATE FOR SPLIT THE FILEDS *
+      * DATE : 07.07.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. UNSTRNG.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 WS-CUST-NAME     PIC X(40) VALUE IS "VIJAY,KUMAR".
+          01 WS-CUST-FIRST-NM  PIC X(20).
+          01 WS-CUST-LAST-NM  PIC X(20).
+       PROCEDURE DIVISION.
+           UNSTRING
+           WS-CUST-NAME
+           DELIMITED BY ","
+           INTO
+           WS-CUST-FIRST-NM , WS-CUST-LAST-NM
+           END-UNSTRING.
+           DISPLAY WS-CUST-FIRST-NM.
+           DISPLAY WS-CUST-LAST-NM.
+           STOP RUN.

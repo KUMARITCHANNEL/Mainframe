@@ -1,0 +1,29 @@
+      ********************************************
+      * COBOL PROGRAM USING SIMPLE INLINE PERFORM*
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SIMP.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 I PIC 9(1) VALUE 0.
+       PROCEDURE DIVISION.
+      * INLINE PERFORM - SIMPLE
+           PERFORM
+           DISPLAY 'SIMPLE IN-LINE PERFORM'
+           END-PERFORM.
+      * INLINE PERFORM - TIMES
+           PERFORM  3 TIMES
+           DISPLAY 'INLINE TIMES PERFORM'
+           END-PERFORM.
+      * INLINE PERFORM - UNTIL
+           PERFORM  UNTIL I = 5
+           COMPUTE I = I + 1
+           DISPLAY 'INLINE USING UNTIL PERFORM'
+           END-PERFORM.
+      * INLINE PERFORM - UNTIL VARYING
+           PERFORM  VARYING I FROM 1 BY 1 UNTIL I = 5
+           DISPLAY 'INLINE USING VARYING UNTIL PERFROM'
+           END-PERFORM.
+           STOP RUN.

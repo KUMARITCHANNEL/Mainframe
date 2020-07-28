@@ -1,0 +1,56 @@
+      ********************************************
+      * COBOL PROGRAM USING FILES                *
+      * INPUT IS FB PS FILE - EMPDD              *
+      * OUTPUT IS TO DISPLAY                     *
+      * SEQUENTIAL FILE  TO WRITE                *
+      * PERFORMING READ OPERATION                *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FILES.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT EMPFILE ASSIGN TO EMPDD
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS MODE IS SEQUENTIAL
+           FILE STATUS IS WS-STAT.
+       DATA DIVISION.
+       FILE SECTION.
+       FD EMPFILE
+           LABEL RECORDS ARE STANDARD
+           RECORDING MODE IS F
+           RECORD CONTAINS 36 CHARACTERS
+           BLOCK CONTAINS 0 RECORDS.
+       01 EMPREC.
+         05 EMP-ID PIC X(5).
+         05 FILLER PIC X(2).
+         05 EMP-NAME PIC X(10).
+         05 FILLER PIC X(2).
+         05 EMP-LOC PIC X(10).
+         05 FILLER PIC X(2).
+         05 EMP-SAL PIC 9(5).
+       WORKING-STORAGE SECTION.
+       77 ARE-THERE-ANY-RECORDS PIC X VALUE 'Y'.
+         88 NO-MORE-RECORDS VALUE 'N'.
+       77 WS-STAT PIC X(2) VALUE SPACE.
+       PROCEDURE DIVISION.
+       MAIN-PARA.
+           PERFORM OPEN-PARA.
+           PERFORM PROCESS-PARA UNTIL NO-MORE-RECORDS.
+           PERFORM CLOSE-PARA.
+           STOP RUN.
+       OPEN-PARA.
+           OPEN OUTPUT EMPFILE.
+       PROCESS-PARA.
+           ACCEPT EMP-ID.
+           ACCEPT EMP-NAME.
+           ACCEPT EMP-LOC.
+           ACCEPT EMP-SAL.
+           ACCEPT ARE-THERE-ANY-RECORDS.
+           WRITE EMPREC.
+           DISPLAY WS-STAT.
+           DISPLAY ARE-THERE-ANY-RECORDS.
+       CLOSE-PARA.
+           CLOSE EMPFILE.

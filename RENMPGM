@@ -1,0 +1,26 @@
+      ********************************************
+      * COBOL PROGRAM FOR RENAMES                *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. RENGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 PAY-REC.
+       03 FIXED-PAY.
+          05 BASIC PIC 9(5) VALUE 10000.
+          05 DA PIC 9(5) VALUE 2000.
+       03 ADD-PAY.
+          05 HRA PIC 9(5) VALUE 1000.
+          05 SP PIC 9(5) VALUE 500.
+       03 DEDUCTION.
+             05 PF-DED PIC 9(5) VALUE 2000.
+             05 IT-DED PIC 9(5) VALUE 1000.
+             05 OTH-DED PIC 9(5) VALUE 500.
+       66  PAY-OTH-BASIC RENAMES DA THRU SP.
+       66  PF-AND-IT-DED RENAMES PF-DED THRU IT-DED.
+       PROCEDURE DIVISION.
+           DISPLAY  PAY-OTH-BASIC.
+           DISPLAY  PF-AND-IT-DED.
+           STOP RUN.

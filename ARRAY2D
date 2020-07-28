@@ -1,0 +1,30 @@
+      ********************************************
+      * COBOL PROGRAM FOR COMP                   *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 I PIC 9(1).
+       77 J PIC 9(1).
+       01 MONTH-GR.
+         02 MONTH   OCCURS 2 TIMES.
+         03 WEEK PIC X(4)  OCCURS 4 TIMES.
+       PROCEDURE DIVISION.
+           MOVE 1 TO I.
+           PERFORM  PARA1 THRU PARA1-END UNTIL I > 2
+           STOP RUN.
+       PARA1.
+           ACCEPT MONTH(I).
+           DISPLAY MONTH(I).
+           MOVE 1 TO J.
+           PERFORM PARA2 THRU PARA2-END UNTIL J > 4.
+           ADD 1 TO I.
+       PARA1-END. EXIT.
+       PARA2.
+           ACCEPT WEEK (I , J).
+           DISPLAY WEEK (I , J).
+           ADD  1 TO J.
+       PARA2-END. EXIT.

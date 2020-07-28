@@ -1,0 +1,12 @@
+       ID DIVISION.
+       PROGRAM-ID. CAL.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A PIC X(3).
+       PROCEDURE DIVISION.
+           MOVE 'HAI' TO A.
+           DISPLAY 'CALLING SUB PGM WITH MESSAGE' A.
+           CALL 'SUB' USING BY REFERENCE A.
+           DISPLAY A.
+           STOP RUN.

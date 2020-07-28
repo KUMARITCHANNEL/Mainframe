@@ -1,0 +1,23 @@
+      ********************************************
+      * COBOL PROGRAM FOR COMP-3                 *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. COMPG.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A PIC  S9(3) COMP-3.
+       01 B PIC  S9(9) COMP-3.
+       01 C PIC  S9(12) COMP-3.
+       PROCEDURE DIVISION.
+           MOVE 123 TO A.
+           MOVE 123456789 TO B.
+           MOVE 123456789876 TO C.
+           DISPLAY A.
+           DISPLAY LENGTH OF A.
+           DISPLAY B.
+           DISPLAY LENGTH OF B.
+           DISPLAY C.
+           DISPLAY LENGTH OF C.
+           STOP RUN.

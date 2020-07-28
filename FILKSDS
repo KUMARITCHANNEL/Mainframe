@@ -1,0 +1,43 @@
+       ID DIVISION.
+       PROGRAM-ID. KSDS.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT KFILE ASSIGN TO KSDS
+           ORGANIZATION IS INDEXED
+           ACCESS MODE IS SEQUENTIAL
+           RECORD KEY IS SNO
+           FILE STATUS IS WS-STAT.
+       DATA DIVISION.
+       FILE SECTION.
+       FD KFILE.
+       01 STD-REC.
+         02 SNO    PIC X(04).
+         02 SNAME  PIC X(05).
+         02 SADDR  PIC X(71).
+       WORKING-STORAGE SECTION.
+       01 NUM PIC X(4).
+       01 EOF PIC X VALUE 'N'.
+       01 OPTION PIC X(3).
+       01 WS-STAT PIC X(2) VALUE SPACES.
+       01 SDETAILS.
+       04 WS-SNO PIC X(4).
+       04 WS-SNAME PIC X(20).
+       04 WS-SADDR PIC X(20).
+       PROCEDURE DIVISION.
+       MAINPARA.
+           PERFORM OPENPARA.
+           PERFORM READPARA UNTIL EOF = 'Y'.
+           STOP RUN.
+       OPENPARA.
+           OPEN INPUT KFILE.
+       READPARA.
+           ACCEPT NUM.
+           READ KFILE
+           AT END MOVE 'Y' TO EOF
+           NOT AT END
+           IF SNO = NUM
+           DISPLAY STD-REC
+           DISPLAY 'RECORD RETRIEVED SUCCESSFULLY'
+           END-IF
+           END-READ.

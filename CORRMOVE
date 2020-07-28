@@ -1,0 +1,29 @@
+      ********************************************
+      * COBOL PROGRAM USING CORR MOVE            *
+      * DATE : 07.07.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MOVEPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 WS-SALARY.
+             02 WS-GROSS PIC 9(5) VALUE 50000.
+             02 WS-TAX   PIC 9(3) VALUE 100.
+          01 WS-A-SALARY.
+             02 WS-GROSS PIC 9(5).
+             02 WS-TAX   PIC 9(3).
+             02 WS-BONUS PIC 9(3) VALUE 200.
+          01 WS-B-SALARY.
+             02 WS-GROSS PIC 9(5).
+             02 WS-TAX   PIC 9(3).
+             02 WS-BONUS PIC 9(3).
+       PROCEDURE DIVISION.
+       EMPLOYEE-SAL-CAL.
+      *    MOVE WS-GROSS OF WS-SALARY TO WS-GROSS OF WS-A-SALARY.
+      *    MOVE WS-GROSS OF WS-SALARY TO WS-GROSS OF WS-B-SALARY.
+           MOVE CORRESPONDING WS-SALARY TO WS-A-SALARY.
+           MOVE CORRESPONDING WS-SALARY TO WS-B-SALARY.
+           DISPLAY WS-A-SALARY.
+           DISPLAY WS-B-SALARY.
+           STOP RUN.

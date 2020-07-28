@@ -1,0 +1,21 @@
+      ********************************************
+      * COBOL PROGRAM FOR ARRAY 1D             *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ARRAY.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 I PIC 9(2).
+       01 MONTH-GR.
+           02 MONTH PIC X(3) OCCURS 12 TIMES.
+       PROCEDURE DIVISION.
+       MAIN-PARA.
+           MOVE 1 TO I.
+           PERFORM UNTIL I > 12
+           ACCEPT MONTH(I)
+           DISPLAY MONTH(I)
+           ADD 1 TO I
+           END-PERFORM.
+           STOP RUN.

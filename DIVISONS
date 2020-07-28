@@ -1,0 +1,41 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. DIVPGM.
+       AUTHOR. VIJAYKUMAR.
+       DATE-WRITTEN. 07/07/2020.
+       DATE-COMPILED. 07/08/2020.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SOURCE-COMPUTER. IBM ZOS.
+       OBJECT-COMPUTER. IBM ZOS.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+       I-O CONTROL.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 WS-ENAME       PIC A(40).
+          01 WS-ADDR1       PIC X(40).
+          02 WS-PH-NO       PIC 9(10).
+          01 WS-SAL         PIC S9(5)V9(2).
+          01 WS-A           PIC S9(3) VALUE +101.
+          01 WS-B           PIC S9(3) VALUE -101.
+          01 WS-BANK-PH-NUM PIC 9(10) VALUE 180034747477.
+          01 WS-BANK-NAME   PIC X(20) VALUE 'MAINFRAME BANK'.
+          01 WS-GROSS-PAY   PIC 9(5)  VALUE IS 0.
+          01 WS-GROSS-PAY1  PIC 9(5)  VALUE IS ZERO.
+          01 WS-CUST-NAME   PIC X(20) VALUE IS SPACE.
+          01 WS-DATE.
+             02 WS-YYYY PIC X(4).
+             02 WS-MM   PIC X(2).
+             02 WS-DD   PIC X(2).
+          77 WS-COUNT   PIC X(3).
+       FILE SECTION.
+       LINKAGE SECTION.
+       PROCEDURE DIVISION.
+       EMPLOYEE-SAL-CAL.
+           ACCEPT WS-ENAME.
+           ACCEPT WS-ADDR1.
+           ACCEPT WS-PH-NO.
+           ACCEPT WS-SAL.
+           DISPLAY WS-ENAME.
+           DISPLAY WS-ADDR1,WS-PH-NO,WS-SAL.
+           STOP RUN.

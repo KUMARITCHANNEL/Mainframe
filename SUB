@@ -1,0 +1,11 @@
+       ID DIVISION.
+       PROGRAM-ID. SUB.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       LINKAGE SECTION.
+       01 A PIC X(3).
+       PROCEDURE DIVISION USING A.
+           DISPLAY A.
+           MOVE 123 TO A.
+           DISPLAY A.
+           EXIT PROGRAM.

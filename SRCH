@@ -1,0 +1,37 @@
+      ********************************************
+      * COBOL PROGRAM FOR SEARCH               *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SRCH.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 NAME PIC X(10).
+       01 J PIC 9(1) VALUE 0.
+       01 BANK-ACCT.
+          02 ACC-TABLE OCCURS 3 TIMES INDEXED BY I.
+             03 ACC-NO PIC 9(10).
+             03 ACC-NM PIC X(10).
+             03 ACC-AMT PIC 9(10).
+       PROCEDURE DIVISION.
+           ACCEPT NAME.
+           DISPLAY "U ENTERED THE NAME " , NAME.
+           MOVE 1 TO J.
+           PERFORM 3 TIMES
+           ACCEPT ACC-NO(J)
+           ACCEPT ACC-NM(J)
+           ACCEPT ACC-AMT(J)
+           ADD 1 TO J
+           END-PERFORM.
+           SET I TO 1.
+           SEARCH ACC-TABLE
+           AT END DISPLAY "NO RECORD FOUND"
+           WHEN ACC-NM(I) = NAME
+           DISPLAY "THE DETAIL ARE"
+           DISPLAY "ACC-NO IS " ACC-NO(I)
+           DISPLAY "NAME OF ACCOUNT HOLDER " ACC-NM(I)
+           DISPLAY "AMOUNT IS " ACC-AMT(I)
+           SET I UP BY 1
+           END-SEARCH.
+           STOP RUN.

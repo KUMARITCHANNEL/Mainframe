@@ -1,0 +1,40 @@
+      ********************************************
+      * COBOL PROGRAM USING CONDITIONAL EVALUATE *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. EVLPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-MONTH PIC 9(02).
+       01 WS-DAYS  PIC 9(02).
+       01 WS-MONTH-NAME PIC X(03).
+       PROCEDURE DIVISION.
+       MONTH-PARA.
+           ACCEPT WS-MONTH.
+           EVALUATE WS-MONTH
+           WHEN 1  MOVE 'JAN' TO WS-MONTH-NAME
+           WHEN 2  MOVE 'FEB' TO WS-MONTH-NAME
+           WHEN 3  MOVE 'MAR' TO WS-MONTH-NAME
+           WHEN 4  MOVE 'APR' TO WS-MONTH-NAME
+           WHEN 5  MOVE 'MAY' TO WS-MONTH-NAME
+           WHEN 6  MOVE 'JUN' TO WS-MONTH-NAME
+           WHEN 7  MOVE 'JUL' TO WS-MONTH-NAME
+           WHEN 8  MOVE 'AUG' TO WS-MONTH-NAME
+           WHEN 9  MOVE 'SEP' TO WS-MONTH-NAME
+           WHEN 10 MOVE 'OCT' TO WS-MONTH-NAME
+           WHEN 11 MOVE 'NOV' TO WS-MONTH-NAME
+           WHEN 12 MOVE 'DEC' TO WS-MONTH-NAME
+           END-EVALUATE.
+           DISPLAY 'MONTH IS :' WS-MONTH-NAME.
+           EVALUATE TRUE
+           WHEN WS-MONTH = 4 OR 6 OR 9 OR 11
+                MOVE 30 TO WS-DAYS
+           WHEN WS-MONTH = 2
+                MOVE 28 TO WS-DAYS
+           WHEN OTHER
+                MOVE 31 TO WS-DAYS
+           END-EVALUATE.
+           DISPLAY 'DAYS ARE' WS-DAYS.
+           STOP RUN.

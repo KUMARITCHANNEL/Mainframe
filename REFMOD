@@ -1,0 +1,33 @@
+      ********************************************
+      * COBOL PROGRAM USING REF MODIFICATION    *
+      * DATE : 07.07.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MOVEPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          01 WS-DATE    PIC X(10) VALUE "2020-07-07".
+          01 WS-YYYY PIC X(4).
+          01 WS-MM   PIC X(2).
+          01 WS-DD   PIC X(2).
+          01 WS-RUN-DATE.
+             02 WS-RUN-YYYY PIC X(4) VALUE "2020".
+             02 WS-RUN-MM   PIC X(2) VALUE "07".
+             02 WS-RUN-DD   PIC X(2) VALUE "08".
+         01  WS-REC-DATE PIC X(10).
+       PROCEDURE DIVISION.
+       TESTING-REF-MOD.
+           MOVE WS-DATE(1:4) TO WS-YYYY.
+           MOVE WS-DATE(6:2) TO WS-MM.
+           MOVE WS-DATE(9:2) TO WS-DD.
+           MOVE WS-RUN-YYYY TO WS-REC-DATE(1:4).
+           MOVE '-'         TO WS-REC-DATE(5:1).
+           MOVE WS-RUN-MM   TO WS-REC-DATE(6:2).
+           MOVE '-'         TO WS-REC-DATE(8:1).
+           MOVE WS-RUN-DD   TO WS-REC-DATE(9:2).
+           DISPLAY WS-DATE.
+           DISPLAY WS-YYYY WS-MM WS-DD.
+           DISPLAY WS-RUN-DATE.
+           DISPLAY WS-REC-DATE.
+           STOP RUN.

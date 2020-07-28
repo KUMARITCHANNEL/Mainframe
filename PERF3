@@ -1,0 +1,24 @@
+      ********************************************
+      * COBOL PROGRAM USING PERORM UNTIL OUTLINE *
+      * DATE : 07.08.2020                        *
+      * AUTHOR : VIJAY KUMAR                     *
+      ********************************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. IFPGM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A PIC 9(3) VALUE 10.
+       01 B PIC 9(3) VALUE 10.
+       01 C PIC 9(3).
+       01 I PIC 9(1).
+       PROCEDURE DIVISION.
+           MOVE 0 TO I.
+           PERFORM P-1 THRU P-1-END UNTIL I = 7.
+           STOP RUN.
+       P-1.
+           ADD 1 TO I.
+           COMPUTE C = A + B.
+           DISPLAY I.
+           DISPLAY C.
+       P-1-END.
+           EXIT.
